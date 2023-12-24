@@ -61,7 +61,6 @@
   gap: 14px;
   align-items: flex-start;
   padding-inline-start: 20px;
-  height: 70px;
 }
 
 .theme-menu__item {
@@ -92,7 +91,7 @@
   width: 0%;
 }
 
-.theme-menu__button:focus, .save-section__save-button:focus, .header__logo:focus-visible, .card__icon-button:focus, .card__like-button:focus {
+.theme-menu__button:focus, .button, .card__icon-button:focus, .header__logo:focus-visible {
   outline: none;
 }
 
@@ -114,6 +113,7 @@
   position: absolute;
   content: "▶";
   inset-inline-start: -21px;
+  inset-block: 0;
 }
 
 .content {
@@ -199,9 +199,14 @@
   padding: 9px 17px;
   border: 2px solid var(--decor-color);
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 
-.button-fill::before {
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--decor-color);
+}
+
+.button::before {
   content: "";
   position: absolute;
   inset-inline-start: 0px;
@@ -209,6 +214,13 @@
   background-color: var(--button-fill-color);
   mix-blend-mode: difference;
   z-index: 1;
+  transition: 0.5s ease-in-out;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.button:hover::before {
+  transform: scaleX(1);
 }
 
 .card__icon-button {
@@ -240,10 +252,6 @@
   height: 34px;
 }
 
-.card__like-button:focus-visible, .save-section__save-button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--decor-color);
-}
-
 .button__text {
   position: relative;
   font-family: var(--accent-font), fantasy;
@@ -253,11 +261,8 @@
 
 /* КНОПКА СОХРАНИТЬ НА ПАМЯТЬ */
 
-
-
 .save-section__save-button {
   background-color: var(--bg-color);
-  position: relative;
   display: flex;
   gap: 8px;
   width: 339px;
@@ -266,8 +271,6 @@
   align-items: center;
   margin: 0 auto calc(2 * var(--blocks-gap)) auto;
   padding: 13px 18px;
-  border: 2px solid var(--decor-color);
-  cursor: pointer;
 }
 
 .save-section__save-button::before {
@@ -302,7 +305,7 @@
 
 .modal-window[open] {
   width: 361px;
-  height: 197px;
+  min-height: 197px;
   padding: 30px;
   position: fixed;
   display: flex;
@@ -315,14 +318,6 @@
   background-color: var(--bg-color);
   color: var(--text-color);
   overflow: visible;
-}
-
-@media (width <= 768px) {
-  .modal-window[open] {
-    width: 345px;
-    height: 199px;
-    padding: 30px 40px;
-  }
 }
 
 .modal-window::backdrop {
@@ -351,7 +346,7 @@
 
 .modal-window__button {
   height: 38px;
-  min-width: 257px;
+  width: 293px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -359,12 +354,29 @@
 }
 
 .modal-window__button::before {
-  width: 253px;
+  width: 289px;
   height: 34px;
 }
 
 .ok-button-text {
   text-transform: uppercase;
+}
+
+@media (width <= 768px) {
+  .modal-window[open] {
+    min-width: 345px;
+    min-height: 199px;
+    padding: 30px 40px;
+  }
+
+  .modal-window__button {
+    width: 257px;
+  }
+
+  .modal-window__button::before {
+    width: 253px;
+  }
+
 }
 
 /* ФИЛЬТРЫ ИЗОБРАЖЕНИЙ */
