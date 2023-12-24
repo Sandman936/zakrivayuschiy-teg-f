@@ -12,3 +12,148 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+
+.theme-menu__button {
+    transition: opacity 0.3s;
+    transition-timing-function: ease;
+}
+
+.theme-menu__button::after {
+    transition: width 0.3s;
+}
+
+.theme-menu__button:disabled::before {
+    animation: arrow 1s infinite ease-in-out;
+}
+
+@keyframes arrow {
+    from {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(4px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* ЭЛЕМЕНТЫ АНИМАЦИИ СЕРДЕЧКА */
+
+.heart {
+    width: 27px;
+    height: 24px;
+    animation-timing-function: linear;
+}
+
+.contour {
+    transition: fill 0.1s;
+}
+
+.core {
+    transition: fill 0.3s 0.03s;
+}
+
+.main-body {
+    transition: fill 0.3s;
+}
+
+.sparks {
+    width: 39px;
+    height: 38px;
+    opacity: 0;
+}
+
+.card__icon-button:hover .main-body {
+    transition: fill 0.3s 0.05s;
+    fill: var(--heart-outline-color);
+}
+
+
+.card__icon-button:hover .core {
+    transition: fill 0.3s;
+    fill: var(--heart-outline-color);
+}
+
+.card__icon-button:active .main-body {
+    transition: fill 0.3s 0.05s;
+    fill: var(--heart-fill-color);
+}
+
+.card__icon-button:active .core {
+    transition: fill 0.3s;
+    fill: var(--heart-fill-color);
+}
+
+.like-icon.is-liked .main-body {
+    transition: fill 0.3s 0.05s;
+    fill: var(--heart-fill-color);
+}
+
+.like-icon.is-liked .core {
+    transition: fill 0.3s;
+    fill: var(--heart-fill-color);
+}
+
+.like-icon.is-liked .contour {
+    transition: fill 0.3s 0.06s;
+    fill: var(--heart-fill-color);
+}
+
+.like-icon.is-liked .heart {
+    animation: like 0.3s 0.1s ease-in;
+    transform-origin: center;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+.like-icon.is-liked .sparks {
+    animation: sparks 0.3s 0.3s ease-in;
+    animation-direction: alternate;
+}
+
+@keyframes like {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes sparks {
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.card__like-button, .save-section__save-button, .modal-window__button {
+    transition: box-shadow 0.3s;
+    transition-timing-function: ease;
+}
+
+.card__like-button::before, .save-section__save-button::before, .modal-window__button::before {
+    transition: 0.5s ease-in-out;
+    transform-origin: left center;
+    transform: scaleX(0);
+}
+  
+.card__like-button:hover::before, .save-section__save-button:hover::before, .modal-window__button:hover::before {
+    transform: scaleX(1);
+}

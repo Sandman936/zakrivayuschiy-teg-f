@@ -4,3 +4,55 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+:root.theme-dark {
+    --bg-color: #000;
+    --text-color: #00cc14;
+    --outline-color: #000;
+    --button-fill-color: #00cc14;
+    --heart-outline-color: #00cc14;
+    --border-focus-active: rgba(0, 204, 20, 1);
+    --border-focus-inactive: rgba(0, 204, 20, 0);
+    --title-font-weight: 785;
+    --text-font-weight: 465;
+    --decor-color: #00cc14;
+    --bg-gradient:
+    repeating-linear-gradient(180deg, #000 0, #000 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(90deg, #000 0, #000 2px, transparent 2px, transparent 4px),
+    linear-gradient(180deg, #007f0c 0%, #004306 100%);
+}
+
+:root.theme-light {
+    --bg-color: #fff;
+    --text-color: #000;
+    --outline-color: #fff;
+    --button-fill-color: #fff;
+    --heart-outline-color: #000;
+    --border-focus-active: rgba(0, 0, 0, 1);
+    --border-focus-inactive: rgba(0, 0, 0, 0);
+    --title-font-weight: 700;
+    --text-font-weight: 400;
+    --decor-color: #000;
+    --bg-gradient:
+    repeating-linear-gradient(180deg, #d3d3d3 0, #d3d3d3 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(90deg, #d3d3d3 0, #d3d3d3 2px, transparent 2px, transparent 4px),
+    linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+    --bg-color: #fff;
+    --text-color: #000;
+    --outline-color: #fff;
+    --button-fill-color: #fff;
+    --heart-outline-color: #000;
+    --border-focus-active: rgba(0, 0, 0, 1);
+    --border-focus-inactive: rgba(0, 0, 0, 0);
+    --title-font-weight: 700;
+    --text-font-weight: 400;
+    --decor-color: #000;
+    --bg-gradient:
+    repeating-linear-gradient(180deg, #d3d3d3 0, #d3d3d3 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(90deg, #d3d3d3 0, #d3d3d3 2px, transparent 2px, transparent 4px),
+    linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+    }
+}
