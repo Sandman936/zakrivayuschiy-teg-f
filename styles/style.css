@@ -128,7 +128,7 @@
 }
 
 .content-section:last-of-type {
-  margin-block-end: calc(var(--blocks-gap) / 2);
+  margin-block-end: var(--blocks-gap);
 }
 
 .content-section__title {
