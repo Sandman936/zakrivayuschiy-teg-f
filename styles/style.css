@@ -127,10 +127,6 @@
   background-color: var(--bg-color);
 }
 
-.content-section:last-of-type {
-  margin-block-end: var(--blocks-gap);
-}
-
 .content-section__title {
   padding: 5px 10px;
   font-variation-settings: "wght" var(--title-font-weight);
